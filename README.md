@@ -1,4 +1,4 @@
-# 👑 Jaishree Jewellers — Haute Joaillerie PERN E-Commerce Platform
+# 👑 JaiShree Jwellers — Haute Joaillerie PERN E-Commerce Platform
 
 A production-grade, full-stack **PERN (PostgreSQL, Express, React, Node.js)** luxury fine jewelry e-commerce platform inspired by the world-class editorial design of [Glymora](https://glymora.webflow.io/). 
 

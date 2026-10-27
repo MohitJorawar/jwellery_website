@@ -35,7 +35,7 @@ app.use('/api/auth', authRoutes);
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    brand: 'Jaishree Jewellers Luxury E-Commerce API',
+    brand: 'JaiShree Jwellers Luxury E-Commerce API',
     databaseEngine: 'PostgreSQL',
     postgresConnected: isPostgresConnected,
     timestamp: new Date().toISOString()
@@ -43,7 +43,7 @@ app.get('/api/health', (req, res) => {
 });
 
 const server = app.listen(PORT, () => {
-  console.log(`\n👑 [Jaishree Jewellers PERN Server] Running on http://localhost:${PORT}`);
+  console.log(`\n👑 [JaiShree Jwellers PERN Server] Running on http://localhost:${PORT}`);
   console.log(`🐘 [Database Engine] PostgreSQL (node-postgres pool)`);
   console.log(`📦 [API Endpoints] /api/products | /api/orders | /api/auth | /api/health\n`);
 });

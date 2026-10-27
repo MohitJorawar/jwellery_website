@@ -90,7 +90,7 @@ export const initStorage = () => {
     const sampleUsers = [
       {
         id: "usr-admin",
-        name: "Jaishree Admin",
+        name: "JaiShree Admin",
         email: "admin@jaishree.com",
         password: "admin123", // In a production setup, bcrypt hash
         role: "admin",

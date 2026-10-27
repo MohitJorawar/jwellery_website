@@ -133,7 +133,7 @@ export const initialProducts = [
       "Handcrafted solid gold bells with mirror finish",
       "Ergonomic weight distribution for fatigue-free wear",
       "Official BIS hallmark verification stamp",
-      "Presented in Glymora luxury signature packaging"
+      "Presented in JaiShree Jwellers luxury signature packaging"
     ],
     availableSizes: ["Standard"],
     availableMetals: ["Yellow Gold"],
@@ -236,11 +236,11 @@ export const initialProducts = [
     isFeatured: true,
     isBestSeller: true,
     isNewArrival: true,
-    description: "The signature Glymora statement piece. A crown of brilliant-cut solitaires enveloped by fluted yellow gold arches, designed to evoke timeless modern majesty.",
+    description: "The signature JaiShree Jwellers statement piece. A crown of brilliant-cut solitaires enveloped by fluted yellow gold arches, designed to evoke timeless modern majesty.",
     features: [
       "Handcrafted masterwork setting with micropavé diamond border",
       "Individually numbered certificate of provenance",
-      "Includes Glymora archival jewelry box and cleaning cloth",
+      "Includes JaiShree Jwellers archival jewelry box and cleaning cloth",
       "Complimentary worldwide express insured transit"
     ],
     availableSizes: [10, 12, 14, 16],

@@ -1,4 +1,4 @@
--- Jaishree Jewellers PostgreSQL Database Schema
+-- JaiShree Jwellers PostgreSQL Database Schema
 -- Run this script if manually provisioning tables in PostgreSQL / Supabase / Neon / Render / AWS RDS
 
 CREATE TABLE IF NOT EXISTS products (

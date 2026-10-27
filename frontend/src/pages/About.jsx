@@ -493,7 +493,7 @@ export const About = ({ onNavigate, onOpenShowroomModal }) => {
                 loading="lazy"
               />
               <div className="gallery-overlay-badge">
-                Glymora
+                JaiShree Jwellers
               </div>
             </div>
           </div>

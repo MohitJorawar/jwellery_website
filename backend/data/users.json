@@ -1,7 +1,7 @@
 [
   {
     "id": "usr-admin",
-    "name": "Jaishree Admin",
+    "name": "JaiShree Admin",
     "email": "admin@jaishree.com",
     "password": "admin123",
     "role": "admin",

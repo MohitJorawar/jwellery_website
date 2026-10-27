@@ -50,7 +50,7 @@ export const ShowroomModal = ({ isOpen, onClose }) => {
               </div>
               <h4 className="font-serif text-2xl text-white mb-2">Salon Appointment Confirmed</h4>
               <p className="text-xs text-white/70 max-w-sm mx-auto leading-relaxed">
-                Thank you, <strong>{formData.name}</strong>. A dedicated Jaishree private jeweler has been assigned to prepare your private viewing salon for <strong>{formData.date || 'your selected date'}</strong>.
+                Thank you, <strong>{formData.name}</strong>. A dedicated JaiShree private jeweler has been assigned to prepare your private viewing salon for <strong>{formData.date || 'your selected date'}</strong>.
               </p>
             </div>
           ) : (

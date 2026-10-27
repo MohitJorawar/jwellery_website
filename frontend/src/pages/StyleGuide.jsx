@@ -23,7 +23,7 @@ export const StyleGuide = ({ onNavigate }) => {
             Atelier Style Guide
           </h1>
           <p className="text-white/60 text-lg max-w-2xl font-light">
-            The core visual language, harmonic typography scales, and curated color palettes powering the Glymora fine jewelry digital experience.
+            The core visual language, harmonic typography scales, and curated color palettes powering the JaiShree Jwellers fine jewelry digital experience.
           </p>
         </div>
 

@@ -99,7 +99,7 @@ export const Login = ({ onNavigate }) => {
     <div className="luxury-container py-16 max-w-md mx-auto space-y-6">
       <div className="text-center space-y-2">
         <span className="text-xs uppercase tracking-widest text-[#d4af37] font-semibold flex items-center justify-center gap-1.5">
-          <Sparkles size={12} /> Jaishree Privilege Access
+          <Sparkles size={12} /> JaiShree Jwellers Privilege Access
         </span>
         <h1 className="font-serif text-3xl text-white">
           {isRegistering ? 'Create Client Dossier' : 'Sign In to Your Vault'}
@@ -215,7 +215,7 @@ export const Login = ({ onNavigate }) => {
             </p>
           ) : (
             <p>
-              New to Jaishree Jewellers?{' '}
+              New to JaiShree Jwellers?{' '}
               <button
                 onClick={() => setIsRegistering(true)}
                 className="text-[#d4af37] hover:underline font-medium"

@@ -1,7 +1,7 @@
 {
-  "name": "jaishree-jewellers-backend",
+  "name": "jaishree-jwellers-backend",
   "version": "1.0.0",
-  "description": "Backend API for Jaishree Jewellers Luxury E-Commerce (PostgreSQL)",
+  "description": "Backend API for JaiShree Jwellers Luxury E-Commerce (PostgreSQL)",
   "main": "server.js",
   "type": "module",
   "scripts": {

@@ -1,8 +1,8 @@
 {
-  "name": "jaishree-jewellers-pern",
+  "name": "jaishree-jwellers-pern",
   "version": "1.0.0",
   "private": true,
-  "description": "Jaishree Jewellers - Luxury Fine Jewelry PERN Stack (PostgreSQL, Express, React, Node.js) E-Commerce Platform",
+  "description": "JaiShree Jwellers - Luxury Fine Jewelry PERN Stack (PostgreSQL, Express, React, Node.js) E-Commerce Platform",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "npm run dev --prefix backend",

@@ -198,7 +198,7 @@ export const AdminDashboard = ({ onNavigate }) => {
             </span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl text-white mt-1">
-            Jaishree Vault Management
+            JaiShree Jwellers Vault Management
           </h1>
         </div>
 

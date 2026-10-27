@@ -5,7 +5,7 @@ const TEAM_MEMBERS = [
   {
     name: 'Aria Vellin',
     role: 'Founder & Creative Director',
-    bio: 'Guided by two decades of European high jewelry mentorship, Aria breathes soul and sculptural balance into every Glymora silhouette.',
+    bio: 'Guided by two decades of European high jewelry mentorship, Aria breathes soul and sculptural balance into every JaiShree Jwellers silhouette.',
     image: 'https://cdn.prod.website-files.com/6947ba20efe4a10015df32b5/694ce498c9cdc08489ec1b04_Professional%20Portrait%20of%20a%20Women.webp',
   },
   {
@@ -73,7 +73,7 @@ export const Team = ({ onNavigate, onOpenShowroomModal }) => {
               </div>
 
               <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs text-white/40 tracking-wider">Glymora Atelier</span>
+                <span className="text-xs text-white/40 tracking-wider">JaiShree Jwellers Atelier</span>
                 <button
                   type="button"
                   onClick={() => onOpenShowroomModal ? onOpenShowroomModal() : onNavigate('contact')}

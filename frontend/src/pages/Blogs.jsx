@@ -10,10 +10,10 @@ const BLOG_POSTS = [
     readTime: '5 min read',
     category: 'Heritage',
     image: 'https://cdn.prod.website-files.com/694a845cb7f2ddee3bad49a9/69624cffa395e5a88b92e2fc_Beautiful%20Flower%20Ring.webp',
-    excerpt: 'Explore how a lifelong devotion to gemstone alchemy and artisanal diamond setting laid the foundation for Glymora’s high jewelry atelier.',
+    excerpt: 'Explore how a lifelong devotion to gemstone alchemy and artisanal diamond setting laid the foundation for JaiShree Jwellers’s high jewelry atelier.',
     content: `From early childhood days spent admiring master gem cutters in historic European workshops, our founder nurtured a singular dream: creating fine jewelry that exists beyond fleeting trends. 
 
-At Glymora, every diamond is selected not merely for technical clarity, but for its inner fire and light architecture. We believe high jewelry is a personal talisman—a quiet yet radiant declaration of poise, heritage, and timeless grace.`,
+At JaiShree Jwellers, every diamond is selected not merely for technical clarity, but for its inner fire and light architecture. We believe high jewelry is a personal talisman—a quiet yet radiant declaration of poise, heritage, and timeless grace.`,
   },
   {
     id: 2,
@@ -83,7 +83,7 @@ export const Blogs = ({ onNavigate }) => {
           Jewelry Journal
         </h1>
         <p className="max-w-xl mx-auto font-sans text-sm sm:text-base text-white/70 font-light leading-relaxed">
-          Stories of heritage, high craftsmanship, styling guides, and the enduring poetry behind Glymora’s fine jewelry collections.
+          Stories of heritage, high craftsmanship, styling guides, and the enduring poetry behind JaiShree Jwellers’s fine jewelry collections.
         </p>
       </div>
 

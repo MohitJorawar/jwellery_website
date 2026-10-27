@@ -129,7 +129,7 @@ export const Footer = ({ onNavigate }) => {
             </div>
 
             <h2 className="glymora-footer-title">
-              Glymora
+              JaiShree Jwellers
             </h2>
 
             <div className="glymora-footer-star-box">
@@ -141,7 +141,7 @@ export const Footer = ({ onNavigate }) => {
         {/* Bottom Copyright Row */}
         <div className="glymora-footer-copyright-box">
           <p className="glymora-footer-copyright-text">
-            Copyright © Glymora | Designed by{' '}
+            Copyright © JaiShree Jwellers | Designed by{' '}
             <a
               href="https://webflow.com/templates/designers/theme-sleek"
               target="_blank"

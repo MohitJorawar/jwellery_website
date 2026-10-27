@@ -71,7 +71,7 @@ export const Shop = ({ initialCategory = 'All', initialSearch = '', onSelectProd
       {/* Shop Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
         <span className="text-[#d4af37] text-xs font-semibold uppercase tracking-widest flex items-center justify-center gap-2">
-          <Sparkles size={13} /> The Jaishree Fine Jewelry Catalog
+          <Sparkles size={13} /> The JaiShree Jwellers Fine Jewelry Catalog
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl text-white">
           Timeless Adornments

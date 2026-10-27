@@ -7,7 +7,7 @@ export const Changelog = ({ onNavigate }) => {
       version: 'v2.4.0',
       date: 'October 2026',
       badge: 'Current Release',
-      title: 'Full Glymora Bespoke Digital Atelier',
+      title: 'Full JaiShree Jwellers Bespoke Digital Atelier',
       items: [
         'Complete integration of 2026 Haute Couture Diamond and Solitaire collection.',
         'High-definition interactive editorial Jewelry Journal with author notes and reading mode.',
@@ -32,7 +32,7 @@ export const Changelog = ({ onNavigate }) => {
       badge: 'Initial Launch',
       title: 'Foundation Atelier Launch',
       items: [
-        'Official launch of the Glymora fine jewelry flagship digital showroom.',
+        'Official launch of the JaiShree Jwellers fine jewelry flagship digital showroom.',
         'Conflict-free diamond provenance and Kimberley Process certification guarantees.',
       ],
     },

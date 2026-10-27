@@ -51,7 +51,7 @@ export const Licenses = ({ onNavigate }) => {
           <div className="bg-[#121816] border border-white/10 p-8 sm:p-10 space-y-4">
             <h2 className="font-serif text-2xl sm:text-3xl text-white">Typography & Fonts</h2>
             <p className="font-sans text-sm text-white/70 font-light leading-relaxed">
-              The primary and secondary typefaces powering Glymora—including Cormorant Garamond, Playfair Display, and Inter—are open-source Google Fonts released under the SIL Open Font License (OFL).
+              The primary and secondary typefaces powering JaiShree Jwellers—including Cormorant Garamond, Playfair Display, and Inter—are open-source Google Fonts released under the SIL Open Font License (OFL).
             </p>
             <div className="pt-3">
               <a
@@ -86,7 +86,7 @@ export const Licenses = ({ onNavigate }) => {
 
         {/* Footer info */}
         <div className="mt-14 pt-8 border-t border-white/10 text-center text-xs text-white/40">
-          Glymora Fine Jewelry Atelier © 2026. All rights reserved.
+          JaiShree Jwellers Fine Jewelry Atelier © 2026. All rights reserved.
         </div>
       </div>
     </div>
