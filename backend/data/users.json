@@ -1,0 +1,18 @@
+[
+  {
+    "id": "usr-admin",
+    "name": "Jaishree Admin",
+    "email": "admin@jaishree.com",
+    "password": "admin123",
+    "role": "admin",
+    "createdAt": "2026-10-18T12:19:08.452Z"
+  },
+  {
+    "id": "usr-client",
+    "name": "Ananya Mehta",
+    "email": "client@example.com",
+    "password": "client123",
+    "role": "customer",
+    "createdAt": "2026-10-18T12:19:08.452Z"
+  }
+]

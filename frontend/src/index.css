@@ -1,0 +1,2902 @@
+:root {
+  --bg-primary: #0a0a0c;
+  --bg-secondary: #121216;
+  --bg-card: #15151c;
+  --bg-card-hover: #1b1b24;
+  --bg-surface: #181822;
+  
+  --gold-primary: #d4af37;
+  --gold-light: #f6e6b4;
+  --gold-dark: #aa8420;
+  --gold-gradient: linear-gradient(135deg, #f6e6b4 0%, #d4af37 50%, #aa8420 100%);
+  --gold-border: rgba(212, 175, 55, 0.22);
+  --gold-border-bright: rgba(212, 175, 55, 0.55);
+
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.45);
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-editorial: 'Cormorant Garamond', Garamond, serif;
+  --font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+
+  --shadow-luxury: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.1);
+  --shadow-glow: 0 0 25px rgba(212, 175, 55, 0.3);
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a36;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Typography Classes */
+.font-serif { font-family: var(--font-serif); }
+.font-editorial { font-family: var(--font-editorial); }
+.font-sans { font-family: var(--font-sans); }
+
+.gold-gradient-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Container */
+.luxury-container {
+  width: 100%;
+  max-width: 1360px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .luxury-container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+/* Layout Utilities */
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1 1 0%; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.items-baseline { align-items: baseline; }
+
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.justify-start { justify-content: flex-start; }
+
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (min-width: 640px) {
+  .sm\:flex-row { flex-direction: row; }
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sm\:w-auto { width: auto; }
+  .sm\:block { display: block; }
+  .sm\:inline { display: inline; }
+}
+
+@media (min-width: 768px) {
+  .md\:flex { display: flex; }
+  .md\:hidden { display: none; }
+  .md\:flex-row { flex-direction: row; }
+  .md\:items-center { align-items: center; }
+  .md\:items-end { align-items: flex-end; }
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .md\:text-left { text-align: left; }
+  .md\:text-right { text-align: right; }
+  .md\:justify-end { justify-content: flex-end; }
+  .md\:w-auto { width: auto; }
+  .md\:inline { display: inline; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lg\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  .lg\:col-span-2 { grid-column: span 2 / span 2; }
+  .lg\:col-span-5 { grid-column: span 5 / span 5; }
+  .lg\:col-span-7 { grid-column: span 7 / span 7; }
+  .lg\:inline { display: inline; }
+}
+
+/* Spacing System */
+.gap-1 { gap: 0.25rem; }
+.gap-1\.5 { gap: 0.375rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-2\.5 { gap: 0.625rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+.gap-10 { gap: 2.5rem; }
+.gap-12 { gap: 3rem; }
+.gap-16 { gap: 4rem; }
+
+.space-y-1 > * + * { margin-top: 0.25rem; }
+.space-y-1\.5 > * + * { margin-top: 0.375rem; }
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.space-y-2\.5 > * + * { margin-top: 0.625rem; }
+.space-y-3 > * + * { margin-top: 0.75rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-5 > * + * { margin-top: 1.25rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+.space-y-8 > * + * { margin-top: 2rem; }
+.space-y-10 > * + * { margin-top: 2.5rem; }
+.space-y-12 > * + * { margin-top: 3rem; }
+.space-y-14 > * + * { margin-top: 3.5rem; }
+.space-y-16 > * + * { margin-top: 4rem; }
+.space-y-20 > * + * { margin-top: 5rem; }
+.space-y-24 > * + * { margin-top: 6rem; }
+
+.space-x-2 > * + * { margin-left: 0.5rem; }
+
+/* Padding & Margins */
+.p-1 { padding: 0.25rem; }
+.p-1\.5 { padding: 0.375rem; }
+.p-2 { padding: 0.5rem; }
+.p-2\.5 { padding: 0.625rem; }
+.p-3 { padding: 0.75rem; }
+.p-3\.5 { padding: 0.875rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+
+.py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-3\.5 { padding-top: 0.875rem; padding-bottom: 0.875rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+.py-14 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+.py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+.py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+.py-24 { padding-top: 6rem; padding-bottom: 6rem; }
+
+.px-1 { padding-left: 0.25rem; padding-right: 0.25rem; }
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-2\.5 { padding-left: 0.625rem; padding-right: 0.625rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+.pl-8 { padding-left: 2rem; }
+
+.pt-2 { padding-top: 0.5rem; }
+.pt-3 { padding-top: 0.75rem; }
+.pt-4 { padding-top: 1rem; }
+.pt-6 { padding-top: 1.5rem; }
+.pt-16 { padding-top: 4rem; }
+
+.pb-2 { padding-bottom: 0.5rem; }
+.pb-6 { padding-bottom: 1.5rem; }
+.pb-10 { padding-bottom: 2.5rem; }
+.pb-12 { padding-bottom: 3rem; }
+.pb-20 { padding-bottom: 5rem; }
+
+.m-0 { margin: 0; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mt-0\.5 { margin-top: 0.125rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mt-16 { margin-top: 4rem; }
+
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-1\.5 { margin-bottom: 0.375rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mb-14 { margin-bottom: 3.5rem; }
+.mb-16 { margin-bottom: 4rem; }
+
+/* Width & Heights */
+.w-full { width: 100%; }
+.w-4 { width: 1rem; }
+.w-10 { width: 2.5rem; }
+.w-12 { width: 3rem; }
+.w-14 { width: 3.5rem; }
+.w-16 { width: 4rem; }
+.w-20 { width: 5rem; }
+.w-28 { width: 7rem; }
+.w-96 { width: 24rem; }
+
+.h-full { height: 100%; }
+.h-1\.5 { height: 0.375rem; }
+.h-4 { height: 1rem; }
+.h-10 { height: 2.5rem; }
+.h-12 { height: 3rem; }
+.h-14 { height: 3.5rem; }
+.h-16 { height: 4rem; }
+.h-20 { height: 5rem; }
+.h-24 { height: 6rem; }
+.h-44 { height: 11rem; }
+.h-96 { height: 24rem; }
+.min-h-screen { min-height: 100vh; }
+.min-h-\[90vh\] { min-height: 90vh; }
+.max-w-xs { max-width: 20rem; }
+.max-w-sm { max-width: 24rem; }
+.max-w-md { max-width: 28rem; }
+.max-w-lg { max-width: 32rem; }
+.max-w-xl { max-width: 36rem; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-3xl { max-width: 48rem; }
+.max-w-4xl { max-width: 56rem; }
+
+/* Positioning */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.inset-x-0 { left: 0; right: 0; }
+.top-0 { top: 0; }
+.top-1\.5 { top: 0.375rem; }
+.top-2\.5 { top: 0.625rem; }
+.top-3 { top: 0.75rem; }
+.top-4 { top: 1rem; }
+.top-full { top: 100%; }
+.bottom-0 { bottom: 0; }
+.bottom-1\.5 { bottom: 0.375rem; }
+.bottom-3 { bottom: 0.75rem; }
+.bottom-6 { bottom: 1.5rem; }
+.left-0 { left: 0; }
+.left-2\.5 { left: 0.625rem; }
+.left-3 { left: 0.75rem; }
+.left-4 { left: 1rem; }
+.left-6 { left: 1.5rem; }
+.right-0 { right: 0; }
+.right-1\.5 { right: 0.375rem; }
+.right-3 { right: 0.75rem; }
+.right-4 { right: 1rem; }
+.right-6 { right: 1.5rem; }
+
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+
+/* Borders & Rounding */
+.border { border: 1px solid rgba(255, 255, 255, 0.1); }
+.border-2 { border: 2px solid; }
+.border-t { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.border-b { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.border-y { border-top: 1px solid rgba(255, 255, 255, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.border-transparent { border-color: transparent; }
+.border-white\/5 { border-color: rgba(255, 255, 255, 0.05); }
+.border-white\/10 { border-color: rgba(255, 255, 255, 0.1); }
+.border-white\/15 { border-color: rgba(255, 255, 255, 0.15); }
+.border-white\/20 { border-color: rgba(255, 255, 255, 0.2); }
+.border-white\/40 { border-color: rgba(255, 255, 255, 0.4); }
+
+.rounded-xs { border-radius: 2px; }
+.rounded-sm { border-radius: 4px; }
+.rounded-full { border-radius: 9999px; }
+
+/* Colors */
+.text-white { color: #ffffff; }
+.text-black { color: #000000; }
+.text-\[\#d4af37\] { color: #d4af37; }
+.text-white\/40 { color: rgba(255, 255, 255, 0.4); }
+.text-white\/50 { color: rgba(255, 255, 255, 0.5); }
+.text-white\/60 { color: rgba(255, 255, 255, 0.6); }
+.text-white\/70 { color: rgba(255, 255, 255, 0.7); }
+.text-white\/80 { color: rgba(255, 255, 255, 0.8); }
+.text-emerald-400 { color: #34d399; }
+.text-red-400 { color: #f87171; }
+.text-amber-400 { color: #fbbf24; }
+
+.bg-black { background-color: #000000; }
+.bg-white { background-color: #ffffff; }
+.bg-\[\#d4af37\] { background-color: #d4af37; }
+.bg-\[\#0a0a0c\] { background-color: #0a0a0c; }
+.bg-\[\#0e0e13\] { background-color: #0e0e13; }
+.bg-\[\#0e0e14\] { background-color: #0e0e14; }
+.bg-\[\#121218\] { background-color: #121218; }
+.bg-\[\#14141c\] { background-color: #14141c; }
+.bg-\[\#14141a\] { background-color: #14141a; }
+.bg-\[\#171720\] { background-color: #171720; }
+.bg-\[\#181822\] { background-color: #181822; }
+.bg-\[\#181824\] { background-color: #181824; }
+.bg-emerald-950 { background-color: #022c22; }
+.bg-red-950 { background-color: #450a0a; }
+.bg-amber-950 { background-color: #451a03; }
+.bg-white\/5 { background-color: rgba(255, 255, 255, 0.05); }
+.bg-white\/10 { background-color: rgba(255, 255, 255, 0.1); }
+.bg-black\/50 { background-color: rgba(0, 0, 0, 0.5); }
+.bg-black\/60 { background-color: rgba(0, 0, 0, 0.6); }
+.bg-black\/80 { background-color: rgba(0, 0, 0, 0.8); }
+
+/* Typography Scales */
+.text-\[9px\] { font-size: 9px; }
+.text-\[10px\] { font-size: 10px; }
+.text-\[11px\] { font-size: 11px; }
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-5xl { font-size: 3rem; line-height: 1.15; }
+.text-6xl { font-size: 3.75rem; line-height: 1.1; }
+.text-7xl { font-size: 4.5rem; line-height: 1.05; }
+
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.italic { font-style: italic; }
+.uppercase { text-transform: uppercase; }
+.tracking-tight { letter-spacing: -0.025em; }
+.tracking-wide { letter-spacing: 0.025em; }
+.tracking-wider { letter-spacing: 0.05em; }
+.tracking-widest { letter-spacing: 0.1em; }
+.tracking-\[0\.15em\] { letter-spacing: 0.15em; }
+.tracking-\[0\.35em\] { letter-spacing: 0.35em; }
+.line-through { text-decoration: line-through; }
+.underline { text-decoration: underline; }
+.underline-offset-4 { text-underline-offset: 4px; }
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Glass Header & Backdrops */
+.glass-header {
+  background: rgba(10, 10, 12, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-2xl {
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+}
+
+/* Buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: var(--gold-gradient);
+  color: #0b0b0d;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.95rem 2rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.35);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: transparent;
+  color: var(--gold-light);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.9rem;
+  border: 1px solid var(--gold-border-bright);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--gold-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Luxury Cards */
+.luxury-card {
+  background: var(--bg-card);
+  border: 1px solid var(--gold-border);
+  transition: var(--transition-smooth);
+}
+
+.luxury-card:hover {
+  border-color: var(--gold-border-bright);
+  box-shadow: var(--shadow-luxury);
+  transform: translateY(-4px);
+}
+
+/* Image Swap Area */
+.image-swap-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1 / 1.15;
+  background-color: #121216;
+}
+
+.image-swap-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-swap-wrapper .img-secondary {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.image-swap-wrapper:hover .img-primary {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.image-swap-wrapper:hover .img-secondary {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* Cart Drawer */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer-content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 460px;
+  background: #101015;
+  border-left: 1px solid var(--gold-border);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-content.active {
+  transform: translateX(0);
+}
+
+/* Cursor & Controls */
+.cursor-pointer { cursor: pointer; }
+.select-none { user-select: none; }
+
+/* Complete button reset to eliminate all browser default button styles */
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: none;
+}
+
+input, select, textarea { font-family: inherit; }
+
+/* Transitions & Animations */
+.transition-all { transition: var(--transition-smooth); }
+.transition-colors { transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease; }
+.transition-transform { transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+.duration-300 { transition-duration: 300ms; }
+.duration-500 { transition-duration: 500ms; }
+.duration-700 { transition-duration: 700ms; }
+
+.hover\:scale-105:hover { transform: scale(1.05); }
+.hover\:scale-110:hover { transform: scale(1.1); }
+.hover\:rotate-12:hover { transform: rotate(12deg); }
+
+/* Pulses */
+@keyframes goldPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+.gold-pulse {
+  animation: goldPulse 4s infinite ease-in-out;
+}
+
+/* Continuous Marquee Ticker */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ============================================= */
+/* GLYMORA HERO SECTION — Exact Template Match   */
+/* ============================================= */
+
+.glymora-hero-section {
+  padding-top: 0;
+  width: 100%;
+  position: relative;
+  background-color: #08110f;
+}
+
+.glymora-hero-layout {
+  background-image: url("https://cdn.prod.website-files.com/6947ba20efe4a10015df32b5/6951001fbb4ac58bb7551c8b_Hero%20Banner.webp");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #0b1614;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 960px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 105px;
+  padding-bottom: 0;
+  overflow: hidden;
+}
+
+.glymora-hero-content-wrap {
+  gap: 36px;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  justify-content: space-between;
+}
+
+/* --- Hero Top Content: Giant "Pearl" Title in Champagne Gold --- */
+.glymora-hero-top-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: clamp(24px, 5vw, 64px);
+  padding-right: clamp(24px, 5vw, 64px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.glymora-hero-top-box {
+  display: flex;
+  align-items: baseline;
+}
+
+.glymora-top-text-box {
+  display: flex;
+  align-items: baseline;
+}
+
+.glymora-bottom-text-box {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+
+.glymora-hero-title-text {
+  font-family: var(--font-serif);
+  color: #eed18d; /* Authentic champagne gold matching reference */
+  font-size: clamp(6.5rem, 16vw, 15.5rem);
+  line-height: 0.88;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.015em;
+  user-select: none;
+  text-shadow: 0 4px 35px rgba(0, 0, 0, 0.45);
+}
+
+.glymora-hero-title-text.one,
+.glymora-hero-title-text.two,
+.glymora-hero-title-text.three,
+.glymora-hero-title-text.four,
+.glymora-hero-title-text.five {
+  text-transform: none;
+}
+
+/* --- Hero Middle Content: Image Portraits Strip & Vertical Ribbon --- */
+.glymora-hero-middle-content {
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  width: 100%;
+  background: rgba(10, 22, 20, 0.2);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.glymora-middle-content-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: clamp(20px, 4.5vw, 64px);
+  padding-right: clamp(20px, 4.5vw, 64px);
+  min-height: 240px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.glymora-middle-left-box {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 28px);
+}
+
+.glymora-middle-right-box {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.5vw, 28px);
+}
+
+.glymora-hero-image {
+  height: 240px;
+  width: clamp(240px, 25vw, 380px);
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* Vertical "Timeless beauty" Ribbon with 4-Pointed Star Icon at Top */
+.glymora-hero-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: #eed18d;
+  user-select: none;
+}
+
+.glymora-hero-text-content .glymora-paragraph {
+  font-family: var(--font-sans);
+  color: #eed18d;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  margin: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  text-transform: none;
+}
+
+.glymora-star-icon-hero {
+  width: 24px;
+  height: 24px;
+  color: #eed18d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.glymora-star-icon-hero svg {
+  width: 100%;
+  height: 100%;
+  fill: #eed18d;
+}
+
+/* --- Solitaire Diamond Ring Overlay (Centered & Floating Across Sections) --- */
+.glymora-hero-item-image-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.glymora-hero-item-image {
+  height: clamp(380px, 46vw, 580px);
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.75));
+  animation: glymoraRingFloat 5s ease-in-out infinite alternate;
+}
+
+@keyframes glymoraRingFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-8px) rotate(0.6deg);
+  }
+}
+
+/* --- Hero Bottom Content: Buttons on Left + "Poise" Fully Right --- */
+.glymora-hero-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-left: clamp(24px, 5vw, 64px);
+  padding-right: clamp(10px, 2.5vw, 36px);
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 15px;
+  padding-bottom: 24px;
+}
+
+.glymora-hero-button-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 12px;
+  z-index: 5;
+}
+
+.glymora-hero-bottom-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-left: auto;
+  z-index: 1;
+}
+
+/* --- Glymora Hero Buttons (Modular Rectangular Design matching screenshot) --- */
+.glymora-button-shop,
+.glymora-button-contact {
+  display: inline-flex;
+  align-items: stretch;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  text-decoration: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.glymora-button-shop:hover,
+.glymora-button-contact:hover {
+  border-color: rgba(238, 209, 141, 0.6);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+.glymora-button-arrow-wrap {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 0;
+  transition: background-color 0.3s ease;
+}
+
+.glymora-button-arrow-wrap.white-bg {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.glymora-button-shop:hover .glymora-button-arrow-wrap.white-bg {
+  background-color: #f7eed8;
+}
+
+.glymora-button-arrow-wrap.dark-bg {
+  background-color: #0c1412;
+  color: #ffffff;
+  border-right: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.glymora-button-contact:hover .glymora-button-arrow-wrap.dark-bg {
+  border-right-color: rgba(238, 209, 141, 0.5);
+}
+
+.glymora-button-label-wrap {
+  background-color: #0c1412;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  height: 44px;
+  border-radius: 0;
+}
+
+.glymora-button-text {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 400;
+  color: #ffffff;
+  white-space: nowrap;
+  letter-spacing: 0.015em;
+}
+
+.glymora-hero-title-text.white-letter {
+  color: #ffffff !important;
+}
+
+/* --- Infinite Marquee Discount Ticker Ribbon --- */
+.glymora-item-discount-wrap {
+  width: 100%;
+  background-color: #121816;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 13px 0;
+  z-index: 5;
+}
+
+.glymora-item-discount-box.hero {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  width: max-content;
+  animation: glymoraTicker 36s linear infinite;
+}
+
+.glymora-item-discount-box.hero:hover {
+  animation-play-state: paused;
+}
+
+@keyframes glymoraTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.glymora-discount-box-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.glymora-discount-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glymora-discount-box-wrap .glymora-paragraph {
+  color: #f3f4f6;
+  font-size: 14px;
+  font-family: var(--font-serif);
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-weight: 400;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* ============================================= */
+/* GLYMORA HERO RESPONSIVE                       */
+/* ============================================= */
+
+@media (max-width: 991px) {
+  .glymora-hero-layout {
+    min-height: 760px;
+    padding-top: 90px;
+  }
+
+  .glymora-hero-content-wrap {
+    gap: 25px;
+  }
+
+  .glymora-hero-image {
+    height: 180px;
+    width: clamp(160px, 20vw, 220px);
+  }
+
+  .glymora-hero-item-image {
+    height: 380px;
+  }
+
+  .glymora-hero-text-content.tab-hide {
+    display: none;
+  }
+
+  .glymora-hero-title-text {
+    font-size: clamp(4rem, 11vw, 7.5rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .glymora-hero-layout {
+    min-height: 640px;
+    padding-top: 80px;
+  }
+
+  .glymora-hero-content-wrap {
+    gap: 20px;
+  }
+
+  .glymora-hero-image {
+    height: 150px;
+    width: clamp(130px, 30vw, 180px);
+  }
+
+  .glymora-hero-item-image {
+    height: 280px;
+  }
+
+  .glymora-hero-bottom-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .glymora-hero-bottom-box {
+    align-self: flex-end;
+  }
+
+  .glymora-hero-title-text {
+    font-size: clamp(3.2rem, 11vw, 5.5rem);
+  }
+}
+
+@media (max-width: 479px) {
+  .glymora-hero-layout {
+    min-height: 520px;
+    padding-top: 70px;
+  }
+
+  .glymora-hero-middle-content {
+    display: none;
+  }
+
+  .glymora-hero-item-image {
+    height: 220px;
+  }
+
+  .glymora-hero-button-box {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .glymora-hero-title-text {
+    font-size: clamp(2.8rem, 14vw, 4.2rem);
+  }
+}
+
+/* ============================================= */
+/* GLYMORA HOME ABOUT SECTION (Exact Match)      */
+/* ============================================= */
+
+.glymora-about-section {
+  width: 100%;
+  background-color: #0b1210;
+  padding: 120px 0 130px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glymora-about-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 64px);
+  box-sizing: border-box;
+}
+
+.glymora-about-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(40px, 6vw, 80px);
+}
+
+.glymora-about-left {
+  flex: 1;
+  max-width: 660px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 44px;
+}
+
+.glymora-about-title {
+  font-family: var(--font-serif);
+  color: #ffffff;
+  font-size: clamp(2.4rem, 4.5vw, 4.4rem);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.glymora-about-right {
+  flex: 1;
+  max-width: 600px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glymora-about-card-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.glymora-about-image-card {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  transform: rotate(-3.5deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  background-color: #121816;
+}
+
+.glymora-about-card-wrap:hover .glymora-about-image-card {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.95);
+}
+
+.glymora-about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.glymora-about-star-box {
+  position: absolute;
+  top: -24px;
+  right: -12px;
+  width: 55px;
+  height: 55px;
+  color: #eed18d;
+  pointer-events: none;
+  z-index: 10;
+  animation: glymoraStarPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glymoraStarPulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 8px rgba(238, 209, 141, 0.4));
+  }
+  100% {
+    transform: rotate(15deg) scale(1.1);
+    filter: drop-shadow(0 0 16px rgba(238, 209, 141, 0.8));
+  }
+}
+
+@media (max-width: 991px) {
+  .glymora-about-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .glymora-about-right {
+    width: 100%;
+    max-width: none;
+  }
+
+  .glymora-about-card-wrap {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+}
+
+/* ============================================= */
+/* GLYMORA ABOUT PAGE STYLES                     */
+/* ============================================= */
+
+.glymora-about-page {
+  background-color: #0b1210;
+  color: #ffffff;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* --- Section 1: Hero Banner "Our story" --- */
+.glymora-about-hero {
+  position: relative;
+  background-color: #0b1210;
+  padding-top: clamp(80px, 10vw, 120px);
+  padding-bottom: 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about-banner-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 64px);
+  box-sizing: border-box;
+}
+
+.about-banner-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  padding-bottom: 70px;
+}
+
+.about-banner-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-title-row {
+  display: flex;
+  align-items: baseline;
+}
+
+.about-title-char {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 11vw, 11.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  user-select: none;
+}
+
+.about-title-char.gold-accent {
+  color: #eed18d;
+}
+
+.about-banner-right {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  max-width: 680px;
+}
+
+.about-video-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  min-width: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  background-color: #121816;
+}
+
+.about-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-banner-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.about-banner-desc {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin: 0;
+  max-width: 380px;
+}
+
+/* --- Section 2: Our Values (Interactive Tabs) --- */
+.glymora-values-section {
+  padding: 120px 0;
+  background-color: #0b1210;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.values-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 64px);
+  box-sizing: border-box;
+}
+
+.values-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+
+.values-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 620px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+.values-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.values-image-wrap:hover .values-image {
+  transform: scale(1.03);
+}
+
+.values-right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.values-section-tag {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.values-card {
+  background-color: rgba(18, 24, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.values-card:hover {
+  border-color: rgba(238, 209, 141, 0.4);
+}
+
+.values-card-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.values-card-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin: 0;
+}
+
+.values-tab-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.values-tab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.values-tab-pill:hover,
+.values-tab-pill.active {
+  background-color: #eed18d;
+  border-color: #eed18d;
+  color: #0b1210;
+}
+
+.values-tab-pill.active .values-pill-icon {
+  fill: #0b1210;
+}
+
+.values-pill-icon {
+  width: 14px;
+  height: 14px;
+  fill: #eed18d;
+  transition: fill 0.3s ease;
+}
+
+/* --- Section 3: Stats Showcase --- */
+.glymora-stats-section {
+  padding: 120px 0;
+  background-color: #0b1210;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.stats-card {
+  position: relative;
+  background-color: #121816;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 209, 141, 0.4);
+}
+
+.stats-card.photo-card {
+  padding: 0;
+}
+
+.stats-card.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.stats-number {
+  font-family: var(--font-serif);
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-weight: 400;
+  color: #eed18d;
+  line-height: 1;
+  margin: 0;
+}
+
+.stats-desc {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --- Section 4: Our Teams --- */
+.glymora-teams-section {
+  padding: 120px 0;
+  background-color: #0b1210;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.teams-header {
+  margin-bottom: 60px;
+}
+
+.teams-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+.team-member-card {
+  background-color: #121816;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.team-member-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(238, 209, 141, 0.4);
+}
+
+.team-member-photo-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  overflow: hidden;
+  position: relative;
+}
+
+.team-member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.team-member-card:hover .team-member-photo {
+  transform: scale(1.03);
+}
+
+.team-member-info {
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.team-member-name {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0 0 6px 0;
+}
+
+.team-member-role {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+/* --- Section 5: Golden Gallery --- */
+.glymora-gallery-section {
+  padding: 120px 0;
+  background-color: #0b1210;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: end;
+}
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  background-color: #121816;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+}
+
+.gallery-card.one {
+  height: 380px;
+}
+.gallery-card.two {
+  height: 520px;
+}
+.gallery-card.three {
+  height: 440px;
+}
+.gallery-card.four {
+  height: 580px;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-overlay-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: #eed18d;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* --- Section 6: Help & Answers (FAQ Accordion) --- */
+.glymora-faq-section {
+  padding: 120px 0 140px;
+  background-color: #0b1210;
+}
+
+.faq-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  text-align: center;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0 0 60px 0;
+}
+
+.faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background-color: #121816;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: border-color 0.3s ease;
+}
+
+.faq-item.open {
+  border-color: rgba(238, 209, 141, 0.5);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 24px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question-text {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.faq-icon-wrap {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-icon-wrap {
+  transform: rotate(180deg);
+  background-color: #eed18d;
+  color: #0b1210;
+  border-color: #eed18d;
+}
+
+.faq-answer-panel {
+  padding: 0 30px 24px;
+}
+
+.faq-answer-text {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .about-banner-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-banner-right {
+    max-width: none;
+    width: 100%;
+  }
+
+  .values-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teams-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .about-banner-right {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================= */
+/* GLYMORA HOME CATALOG SECTION (Below About)    */
+/* ============================================= */
+
+.glymora-home-catalog-section {
+  padding: 40px 0 100px;
+  background-color: #0b1210;
+}
+
+.glymora-catalog-container {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  box-sizing: border-box;
+}
+
+.glymora-catalog-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.glymora-catalog-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.glymora-catalog-banner {
+  position: relative;
+  overflow: hidden;
+  background-color: #0b1210;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  min-height: 520px;
+  height: 100%;
+}
+
+.glymora-catalog-banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+  transition: transform 0.8s ease;
+}
+
+.glymora-catalog-banner:hover .glymora-catalog-banner-image {
+  transform: scale(1.04);
+}
+
+.glymora-banner-category-title {
+  position: absolute;
+  top: 36px;
+  left: 36px;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.glymora-banner-btn {
+  position: absolute;
+  bottom: 36px;
+  left: 36px;
+  z-index: 2;
+}
+
+/* Product Card */
+.glymora-catalog-product-card {
+  position: relative;
+  background-color: #0b1210;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.glymora-catalog-product-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.glymora-product-card-category {
+  padding: 24px 28px 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 300;
+  margin: 0;
+}
+
+.glymora-product-card-image-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+}
+
+.glymora-product-card-image {
+  max-height: 240px;
+  max-width: 85%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glymora-catalog-product-card:hover .glymora-product-card-image {
+  transform: scale(1.07);
+}
+
+/* Bottom description box with WHITE HOVER EFFECT */
+.glymora-product-card-bottom {
+  background-color: #0b1210;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.glymora-product-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.glymora-product-card-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.25;
+  transition: color 0.25s ease;
+}
+
+.glymora-product-card-price {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+.glymora-product-card-arrow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.glymora-product-card-arrow {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  stroke: #ffffff;
+  transition: color 0.25s ease, stroke 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+/* When hovering over the product card or the description box: turns WHITE */
+.glymora-catalog-product-card:hover .glymora-product-card-bottom,
+.glymora-product-card-bottom:hover {
+  background-color: #ffffff;
+}
+
+.glymora-catalog-product-card:hover .glymora-product-card-name,
+.glymora-product-card-bottom:hover .glymora-product-card-name {
+  color: #0b1210;
+}
+
+.glymora-catalog-product-card:hover .glymora-product-card-price,
+.glymora-product-card-bottom:hover .glymora-product-card-price {
+  color: #0b1210;
+}
+
+.glymora-catalog-product-card:hover .glymora-product-card-arrow,
+.glymora-product-card-bottom:hover .glymora-product-card-arrow {
+  color: #0b1210;
+  stroke: #0b1210;
+  transform: translate(2px, -2px);
+}
+
+/* ============================================= */
+/* GLYMORA PRODUCT DETAIL PAGE (Exact Replica)   */
+/* ============================================= */
+
+.glymora-pdp-section {
+  background-color: #0b1210;
+  color: #ffffff;
+  padding-top: clamp(60px, 8vw, 100px);
+  padding-bottom: 120px;
+  min-height: 100vh;
+}
+
+.glymora-pdp-container {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  box-sizing: border-box;
+}
+
+.pdp-main-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(30px, 5vw, 70px);
+  align-items: start;
+  margin-bottom: 80px;
+}
+
+.pdp-image-frame {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #121816;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 640px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.pdp-main-image {
+  max-width: 80%;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.pdp-image-frame:hover .pdp-main-image {
+  transform: scale(1.05);
+}
+
+.pdp-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.pdp-category-tag {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 12px 0;
+  font-weight: 300;
+}
+
+.pdp-product-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 20px 0;
+}
+
+.pdp-description-text {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin: 0;
+}
+
+.pdp-actions-box {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 10px;
+}
+
+.pdp-cart-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pdp-qty-input {
+  width: 70px;
+  height: 52px;
+  background-color: #121816;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.pdp-qty-input:focus {
+  border-color: #eed18d;
+}
+
+.pdp-add-cart-btn {
+  height: 52px;
+  padding: 0 36px;
+  background-color: #121816;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pdp-add-cart-btn:hover {
+  background-color: #eed18d;
+  color: #0b1210;
+  border-color: #eed18d;
+}
+
+.pdp-buy-now-btn {
+  height: 52px;
+  padding: 0 36px;
+  background-color: #eed18d;
+  border: 1px solid #eed18d;
+  color: #0b1210;
+  font-family: var(--font-serif);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pdp-buy-now-btn:hover {
+  background-color: #f7e2b0;
+  border-color: #f7e2b0;
+}
+
+.pdp-price-display {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+}
+
+.pdp-specs-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 24px;
+  gap: 16px;
+}
+
+.pdp-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.pdp-spec-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+.pdp-spec-val {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+/* Rich text editorial section */
+.pdp-story-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: clamp(40px, 6vw, 70px) 0;
+  margin: 40px 0 80px;
+}
+
+.pdp-story-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+}
+
+.pdp-story-desc {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  max-width: 1200px;
+  margin: 0;
+}
+
+/* More products */
+.pdp-more-products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.pdp-more-products-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pdp-more-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 991px) {
+  .glymora-catalog-row {
+    grid-template-columns: 1fr;
+  }
+
+  .glymora-catalog-banner {
+    min-height: 380px;
+  }
+
+  .pdp-main-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pdp-image-frame {
+    min-height: 420px;
+  }
+
+  .pdp-more-products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================= */
+/* GLYMORA FEATURED PRODUCT 2x2 GRID SECTION     */
+/* ============================================= */
+
+.glymora-featured-section {
+  padding: 80px 0 120px;
+  background-color: #0b1210;
+}
+
+.glymora-featured-container {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  box-sizing: border-box;
+}
+
+.glymora-featured-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.glymora-featured-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.glymora-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.glymora-featured-card {
+  position: relative;
+  background-color: #0b1210;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.glymora-featured-card:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.glymora-featured-card-category {
+  padding: 28px 32px 0;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin: 0;
+}
+
+.glymora-featured-image-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 40px;
+  min-height: 380px;
+}
+
+.glymora-featured-image {
+  max-height: 300px;
+  max-width: 85%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glymora-featured-card:hover .glymora-featured-image {
+  transform: scale(1.06);
+}
+
+.glymora-featured-bottom-box {
+  background-color: #0b1210;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.glymora-featured-product-name {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.25;
+  transition: color 0.25s ease;
+}
+
+.glymora-featured-product-price {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+/* Hover effect on featured product bottom box */
+.glymora-featured-card:hover .glymora-featured-bottom-box,
+.glymora-featured-bottom-box:hover {
+  background-color: #ffffff;
+}
+
+.glymora-featured-card:hover .glymora-featured-product-name,
+.glymora-featured-bottom-box:hover .glymora-featured-product-name {
+  color: #0b1210;
+}
+
+.glymora-featured-card:hover .glymora-featured-product-price,
+.glymora-featured-bottom-box:hover .glymora-featured-product-price {
+  color: #0b1210;
+}
+
+/* PDP Back Button & Breadcrumbs Navigation */
+.pdp-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pdp-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.pdp-back-btn:hover {
+  background-color: #eed18d;
+  color: #0b1210;
+  border-color: #eed18d;
+}
+
+.pdp-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.pdp-crumb-link {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+  padding: 0;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.pdp-crumb-link:hover {
+  color: #eed18d;
+}
+
+.pdp-crumb-active {
+  color: #eed18d;
+}
+
+@media (max-width: 900px) {
+  .glymora-featured-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================= */
+/* GLYMORA OUR CLIENTS SECTION (Video + Carousel)*/
+/* ============================================= */
+
+.glymora-clients-section {
+  padding: clamp(70px, 9vw, 130px) 0;
+  background-color: #0b1210;
+  overflow: hidden;
+  position: relative;
+}
+
+.glymora-clients-container {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  box-sizing: border-box;
+}
+
+.glymora-clients-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 6.5vw, 5.8rem);
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 clamp(40px, 6vw, 70px) 0;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.glymora-clients-wrapper {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  align-items: stretch;
+}
+
+.glymora-clients-left {
+  position: relative;
+  z-index: 5;
+  flex: 0 0 clamp(320px, 34vw, 540px);
+  height: 560px;
+  overflow: hidden;
+  background-color: #0b1210;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.glymora-clients-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.glymora-clients-play-btn {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(11, 18, 16, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 6;
+}
+
+.glymora-clients-play-btn:hover {
+  background-color: #eed18d;
+  color: #0b1210;
+  border-color: #eed18d;
+  transform: scale(1.08);
+}
+
+.glymora-clients-right {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.glymora-clients-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: glymoraClientsScroll 18s linear infinite;
+  will-change: transform;
+}
+
+@keyframes glymoraClientsScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+.glymora-client-card {
+  flex: 0 0 clamp(360px, 28vw, 480px);
+  width: clamp(360px, 28vw, 480px);
+  height: 560px;
+  background-color: #0b1210;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: clamp(28px, 3vw, 44px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.3s ease;
+}
+
+.glymora-client-card:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.glymora-client-card-top {
+  display: flex;
+  gap: clamp(16px, 2vw, 24px);
+  align-items: center;
+}
+
+.glymora-client-avatar {
+  width: 140px;
+  height: 160px;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glymora-client-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.glymora-client-name {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 1.8vw, 26px);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.glymora-client-role {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+.glymora-client-stars {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.glymora-star-svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.glymora-client-quote {
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.75;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .glymora-clients-wrapper {
+    flex-direction: column;
+  }
+
+  .glymora-clients-left {
+    flex: none;
+    width: 100%;
+    height: 380px;
+    max-width: 100%;
+  }
+
+  .glymora-client-card {
+    height: auto;
+    min-height: 420px;
+    flex: 0 0 340px;
+    width: 340px;
+    padding: 24px;
+  }
+
+  .glymora-client-avatar {
+    width: 110px;
+    height: 130px;
+  }
+}
+/* ============================================= */
+/* GLYMORA LUXURY FOOTER (Exact Match)          */
+/* ============================================= */
+
+.glymora-footer-section {
+  width: 100%;
+  padding-bottom: 0;
+  background-color: #0b1210;
+  position: relative;
+  overflow: hidden;
+}
+
+.glymora-footer-layout {
+  background-image: url("https://cdn.prod.website-files.com/6947ba20efe4a10015df32b5/6948eebf30e31bf69726105e_Black%20Fabric%20With%20Soft%20Texture.webp");
+  background-position: center top;
+  background-size: cover;
+  min-height: 950px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 1. Carousel of brands in triangle-like chevron shapes */
+.glymora-footer-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 25px;
+  position: relative;
+  display: flex;
+}
+
+.glymora-footer-marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: glymoraFooterMarquee 45s linear infinite;
+  will-change: transform;
+}
+
+@keyframes glymoraFooterMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.glymora-footer-line-box {
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 347px;
+  max-width: 347px;
+  margin-right: -105px;
+  display: flex;
+  position: relative;
+  user-select: none;
+}
+
+.glymora-footer-line-one {
+  z-index: 1;
+  max-width: none;
+  height: 160px;
+  display: block;
+  pointer-events: none;
+}
+
+.glymora-footer-line-two {
+  max-width: none;
+  height: 160px;
+  display: block;
+  pointer-events: none;
+}
+
+.glymora-collab-icon {
+  width: 150px;
+  height: 46px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.glymora-collab-icon.one {
+  bottom: 80px;
+  z-index: 2;
+}
+
+.glymora-collab-icon.two {
+  bottom: 30px;
+  z-index: 2;
+}
+
+/* 2. Middle Row: Image in middle & navbar besides */
+.glymora-footer-middle-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+  position: relative;
+  z-index: 3;
+}
+
+.glymora-footer-menu-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.glymora-footer-left-menu,
+.glymora-footer-right-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 3.5vw, 48px);
+  padding-bottom: 24px;
+}
+
+.glymora-footer-nav-link {
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 400;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+  letter-spacing: 0.02em;
+  padding: 0;
+}
+
+.glymora-footer-nav-link.active,
+.glymora-footer-nav-link:hover {
+  color: #eed18d;
+}
+
+.glymora-footer-image-box {
+  margin-bottom: -115px;
+  transform: rotate(-8deg);
+  z-index: 10;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+.glymora-footer-image-box:hover {
+  transform: rotate(-6deg) scale(1.02);
+}
+
+.glymora-footer-image {
+  width: clamp(260px, 24vw, 340px);
+  height: clamp(320px, 28vw, 420px);
+  object-fit: cover;
+  display: block;
+}
+
+/* 3. Brand name below the image */
+.glymora-footer-bottom-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(24px, 4vw, 55px);
+  width: 100%;
+  max-width: 1660px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.glymora-footer-star-box {
+  width: clamp(80px, 12vw, 185px);
+  height: clamp(80px, 12vw, 185px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eed18d;
+  flex-shrink: 0;
+}
+
+.glymora-footer-title {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 15vw, 14.5rem);
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-align: center;
+  user-select: none;
+}
+
+/* Copyright Row */
+.glymora-footer-copyright-box {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 60px;
+  padding: 24px clamp(20px, 4vw, 60px);
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.glymora-footer-copyright-text {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.glymora-footer-copyright-text a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.glymora-footer-copyright-text a:hover {
+  color: #eed18d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .glymora-footer-line-box {
+    width: 220px;
+    max-width: 220px;
+    margin-right: -66px;
+  }
+  .glymora-footer-line-one,
+  .glymora-footer-line-two {
+    height: 100px;
+  }
+  .glymora-collab-icon {
+    width: 95px;
+    height: 30px;
+  }
+  .glymora-collab-icon.one {
+    bottom: 50px;
+  }
+  .glymora-collab-icon.two {
+    bottom: 20px;
+  }
+  .glymora-footer-image-box {
+    margin-bottom: -70px;
+  }
+  .glymora-footer-star-box {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 767px) {
+  .glymora-footer-menu-box {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .glymora-footer-left-menu,
+  .glymora-footer-right-menu {
+    width: 100%;
+    justify-content: space-around;
+    padding-bottom: 0;
+  }
+  .glymora-footer-image-box {
+    order: -1;
+    margin-bottom: 0;
+  }
+  .glymora-footer-bottom-box {
+    margin-top: 30px;
+  }
+  .glymora-footer-star-box {
+    display: none;
+  }
+  .glymora-footer-copyright-box {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    margin-top: 40px;
+  }
+}

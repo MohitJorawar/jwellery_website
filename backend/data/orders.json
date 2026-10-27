@@ -1,0 +1,131 @@
+[
+  {
+    "id": "jj-ord-1792329658507",
+    "orderNumber": "JJ-2026-3270",
+    "customer": {
+      "name": "Eleanor Vance",
+      "email": "eleanor@glymora.com",
+      "phone": "+1 555 123 4567",
+      "address": "742 Evergreen Terrace",
+      "city": "Springfield",
+      "state": "OR",
+      "postalCode": "97477"
+    },
+    "items": [
+      {
+        "id": "gly-prod-001",
+        "name": "Celeste Diamond Ring",
+        "price": 5950,
+        "quantity": 1,
+        "selectedMetal": "Yellow Gold",
+        "selectedKarat": "18K",
+        "selectedSize": 14,
+        "image": "https://cdn.prod.website-files.com/694a845cb7f2ddee3bad49a9/694cbfc3e6b2e8d98c5c010c_Celeste%20Diamond%20Ring.webp"
+      }
+    ],
+    "subtotal": 5950,
+    "shipping": 0,
+    "discount": 0,
+    "totalAmount": 5950,
+    "paymentMethod": "Prepaid (VIP Card)",
+    "paymentStatus": "Paid",
+    "orderStatus": "Confirmed",
+    "createdAt": "2026-10-18T13:20:58.507Z"
+  },
+  {
+    "id": "jj-ord-1792326520802",
+    "orderNumber": "JJ-2026-7158",
+    "customer": {
+      "name": "Aarav Patel",
+      "email": "aarav@test.com",
+      "phone": "9999988888",
+      "address": "Bandra",
+      "city": "Mumbai",
+      "state": "MH",
+      "postalCode": "400050"
+    },
+    "items": [
+      {
+        "id": "jj-prod-001",
+        "name": "Celeste Diamond Ring",
+        "price": 84500,
+        "quantity": 1,
+        "selectedMetal": "Yellow Gold",
+        "selectedKarat": "18K",
+        "selectedSize": 14,
+        "image": "https://test.jpg"
+      }
+    ],
+    "subtotal": 84500,
+    "shipping": 0,
+    "totalAmount": 84500,
+    "paymentMethod": "Prepaid",
+    "paymentStatus": "Paid",
+    "orderStatus": "Confirmed",
+    "createdAt": "2026-10-18T12:28:40.802Z"
+  },
+  {
+    "id": "jj-ord-1001",
+    "orderNumber": "JJ-2026-1001",
+    "customer": {
+      "name": "Pooja Sharma",
+      "email": "pooja.sharma@example.com",
+      "phone": "+91 98765 43210",
+      "address": "Flat 402, Royal Palms, Bandra West",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "postalCode": "400050"
+    },
+    "items": [
+      {
+        "id": "jj-prod-001",
+        "name": "Celeste Royal Solitaire Diamond Ring",
+        "price": 84500,
+        "quantity": 1,
+        "selectedMetal": "Yellow Gold",
+        "selectedKarat": "18K",
+        "selectedSize": 14,
+        "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1000&auto=format&fit=crop"
+      }
+    ],
+    "subtotal": 84500,
+    "shipping": 0,
+    "totalAmount": 84500,
+    "paymentMethod": "Prepaid (UPI / Card)",
+    "paymentStatus": "Paid",
+    "orderStatus": "Delivered",
+    "createdAt": "2026-10-15T12:19:08.450Z"
+  },
+  {
+    "id": "jj-ord-1002",
+    "orderNumber": "JJ-2026-1002",
+    "customer": {
+      "name": "Rohit Singhania",
+      "email": "rohit.s@example.com",
+      "phone": "+91 98112 34567",
+      "address": "B-12, Greater Kailash Part 1",
+      "city": "New Delhi",
+      "state": "Delhi",
+      "postalCode": "110048"
+    },
+    "items": [
+      {
+        "id": "jj-prod-002",
+        "name": "Aurea Cascading Diamond Drop Earrings",
+        "price": 112000,
+        "quantity": 1,
+        "selectedMetal": "Rose Gold",
+        "selectedKarat": "18K",
+        "selectedSize": "Standard",
+        "image": "https://images.unsplash.com/photo-1630019852942-f89202989a59?q=80&w=1000&auto=format&fit=crop"
+      }
+    ],
+    "subtotal": 112000,
+    "shipping": 0,
+    "totalAmount": 112000,
+    "paymentMethod": "Cash on Delivery (Insured)",
+    "paymentStatus": "Pending",
+    "orderStatus": "Processing",
+    "createdAt": "2026-10-18T12:19:08.451Z"
+  }
+]
